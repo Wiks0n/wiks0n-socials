@@ -1,20 +1,27 @@
-window.addEventListener('DOMContentLoaded', () => {
-    VANTA.BIRDS({
-        el: "#vanta",
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        scale: 1.00,
-        scaleMobile: 1.00,
-        color2: 0x4a0000,
-        birdSize: 0.50,
-        backgroundAlpha: 0.00
-    })
+document.addEventListener('DOMContentLoaded', () => {
+    const welcomeScreen = document.getElementById('welcome-screen');
+    const mainContent = document.getElementById('main-content');
+    const backgroundAudio = document.getElementById('background-audio');
+    const audio = document.getElementById('background-audio');
+    audio.volume = 0.015;
+
+    welcomeScreen.addEventListener('click', () => {
+        welcomeScreen.classList.add('hidden');
+        backgroundAudio.play();
 
         setTimeout(() => {
-            const main = document.querySelector('main')
-            main.style.opacity = 1
-        }, 1000)
-})
+            welcomeScreen.style.display = 'none';
+            mainContent.style.display = 'block';
+        }, 800);
+    });
+
+    setTimeout(() => {
+        const main = document.querySelector('main')
+        main.style.opacity = 1;
+    }, 1000);
+});
+
+document.getElementById('volume').addEventListener('input', function(event) {
+    const audio = document.getElementById('background-audio');
+    audio.volume = event.target.value;
+});
