@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainContent = document.getElementById('main-content');
     const backgroundAudio = document.getElementById('background-audio');
     const audio = document.getElementById('background-audio');
-    audio.volume = 0.015;
+    audio.volume = 0.05;
 
     welcomeScreen.addEventListener('click', () => {
         welcomeScreen.classList.add('hidden');
